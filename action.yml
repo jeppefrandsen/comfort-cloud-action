@@ -54,9 +54,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
     - name: Setup Python
       uses: actions/setup-python@v3
       with:
@@ -66,11 +63,11 @@ runs:
       shell: bash
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r $GITHUB_ACTION_PATH/requirements.txt
 
     - name: Run
       shell: bash
-      run: python main.py
+      run: python $GITHUB_ACTION_PATH/main.py
       env:
         COMFORT_CLOUD_USERNAME: ${{ inputs.username }}
         COMFORT_CLOUD_PASSWORD: ${{ inputs.password }}
