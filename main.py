@@ -7,6 +7,7 @@ COMPANY = os.getenv('COMFORT_CLOUD_COMPANY')
 PRICE_MAX = float(os.getenv('COMFORT_CLOUD_PRICE_MAX'))
 NETWORK_COMPANY = os.getenv('COMFORT_CLOUD_NETWORK_COMPANY')
 
+
 def main():
     session = pcomfortcloud.Session(os.getenv('COMFORT_CLOUD_USERNAME'), os.getenv('COMFORT_CLOUD_PASSWORD'))
     session.login()
@@ -32,6 +33,7 @@ def main():
             print("Unable to get device parameters")
     else:
         print("Unable to find device")
+
 
 if __name__ == "__main__":
     main()
