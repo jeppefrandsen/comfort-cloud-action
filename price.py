@@ -5,10 +5,10 @@ from datetime import datetime
 PRICE_API_URL = "https://www.billigkwh.dk/api/Priser/HentPriser"
 
 
-def price(area: str, transport: str, company: str) -> float | None:
+def price(area_dk: str, net_company: str, electricity_company: str) -> float | None:
     now = datetime.now(pytz.timezone("Europe/Copenhagen"))
     hour = int(datetime.strftime(now, "%H"))
-    params = {'sted': area, 'netselskab': transport, 'produkt': company}
+    params = {'sted': area_dk, 'netselskab': net_company, 'produkt': electricity_company}
     headers = {'User-Agent': 'UserAgent/1.0'}
 
     response = requests.get(url=PRICE_API_URL, params=params, headers=headers).json()
