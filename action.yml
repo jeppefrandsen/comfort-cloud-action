@@ -33,12 +33,41 @@ inputs:
     - forsyning_elnet
     - gev_elnet_c
     - hammel_elforsyning_net_as
+    - hjerting_transformatorforening
+    - hurup_elvrk_net_c
+    - ikast_el_net_as_c
+    - kimbrer_c
+    - konstant_c
+    - l-net
+    - laesoe_elnet_c
+    - midtfyns_elforsyning_c
     - n1_c
+    - nakskov_elnet_e
+    - netselskabet_elvaerk_331_c
+    - netselskabet_elvaerk_c
+    - nke-elnet
+    - nord_energi_net
+    - noe_net
+    - radius_c
+    - rah_c
+    - ravdex
+    - sunds_net
+    - tarm_elværk_net_as
+    - trefor_el-net_c
+    - trefor_el-net_oest_c
+    - veksel
+    - videbaek_elnet_c
+    - vildbjerg_elnet_c
+    - vores_elnet
+    - zeanet
+    - aal_el_net_c
   company:
     description: "Electricity company"
     required: true
     type: choice
-    options: 
+    options:
+    - spotpris
+    - andel_energi_timeenergi
     - nettopower
   price-max:
     description: "Electricity price max"
@@ -54,17 +83,15 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Comfort Cloud
+    - name: Setup Python
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-
     - name: Install dependencies
       shell: bash
       run: |
         python -m pip install --upgrade pip
         pip install -r $GITHUB_ACTION_PATH/requirements.txt
-
     - name: Run
       shell: bash
       run: python $GITHUB_ACTION_PATH/main.py
