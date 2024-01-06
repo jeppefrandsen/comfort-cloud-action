@@ -4,9 +4,13 @@
 
 GitHub Actions for controlling a Panasonic Comfort Cloud enabled heatpump based on electricity price.
 
+## Benefits
+
+Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like Homey and Home Assistant and requiring more electricity. It is furthermore totally FREE since all GitHub users gets 2000 Actions minutes per month so no monthly subscriptions and buying of dedicated devices for this purpose.
+
 ## Usage
 
-Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under "Actions" by selecting "Disable workflow".
+Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under the "Actions" tab by selecting "Disable workflow".
 
 
 ```yml
@@ -30,3 +34,10 @@ jobs:
         company: nettopower
         price-max: 3.0
 ```
+
+## Roadmap
+
+Below are some of the identified roadmap items. Pull requests are more than welcome :pray:
+
+- [ ] Add support for miminum temperature (force turn on if temperature is below limit)
+- [ ] Add more intelligent control (increase temperature when cheaper than a certain level)
