@@ -54,6 +54,9 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
     - name: Setup Python
       uses: actions/setup-python@v3
       with:
