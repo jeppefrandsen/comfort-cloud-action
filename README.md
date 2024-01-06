@@ -6,7 +6,8 @@ GitHub Actions for controlling a Panasonic Comfort Cloud enabled heatpump based 
 
 ## Usage
 
-Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the Panasonic Comfort Cloud enabled heatpump based on the specified max price.
+Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under "Actions" by selecting "Disable workflow".
+
 
 ```yml
 name: run
@@ -19,7 +20,7 @@ jobs:
   comfort-cloud:
     runs-on: ubuntu-latest
     steps:  
-    - name: Check price and control Comfort Cloud
+    - name: Check price and control Panasonic Comfort Cloud
       uses: jeppefrandsen/comfort-cloud-action@v1
       with:
         username: ${{ secrets.COMFORT_CLOUD_USERNAME }}
