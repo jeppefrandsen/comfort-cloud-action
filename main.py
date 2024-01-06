@@ -5,7 +5,7 @@ import pcomfortcloud
 AREA = os.getenv('COMFORT_CLOUD_AREA')
 COMPANY = os.getenv('COMFORT_CLOUD_COMPANY')
 PRICE_MAX = float(os.getenv('COMFORT_CLOUD_PRICE_MAX'))
-NET_COMPANY = os.getenv('COMFORT_CLOUD_NET_COMPANY')
+NETWORK_COMPANY = os.getenv('COMFORT_CLOUD_NETWORK_COMPANY')
 
 def main():
     session = pcomfortcloud.Session(os.getenv('COMFORT_CLOUD_USERNAME'), os.getenv('COMFORT_CLOUD_PASSWORD'))
@@ -15,16 +15,19 @@ def main():
     if devices:
         device = session.get_device(devices[0]['id'])
         if device:
-            price = electricity.price(AREA, NET_COMPANY, COMPANY)
             power = device['parameters']['power']
-            print("Current price is {}".format(price))
+            price = electricity.price(AREA, NETWORK_COMPANY, COMPANY)
+            if price:
+                print("Current price is {}".format(price))
 
-            if power == pcomfortcloud.constants.Power.On and price > PRICE_MAX:
-                print("Powering off {}".format(devices[0]['name']))
-                session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
-            elif power == pcomfortcloud.constants.Power.Off and price <= PRICE_MAX:
-                print("Powering on {}".format(devices[0]['name']))
-                session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
+                if power == pcomfortcloud.constants.Power.On and price > PRICE_MAX:
+                    print("Powering off {}".format(devices[0]['name']))
+                    session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
+                elif power == pcomfortcloud.constants.Power.Off and price <= PRICE_MAX:
+                    print("Powering on {}".format(devices[0]['name']))
+                    session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
+            else:
+                print("Unable to get electricity price")
         else:
             print("Unable to get device parameters")
     else:

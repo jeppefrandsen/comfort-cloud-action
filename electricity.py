@@ -5,8 +5,8 @@ from datetime import datetime
 ELECTRICITY_PRICE_URL = "https://www.billigkwh.dk/api/Priser/HentPriser"
 
 
-def price(area: str, netcompany: str, company: str) -> float | None:
-    params = {'sted': area, 'netselskab': netcompany, 'produkt': company}
+def price(area: str, network_company: str, company: str) -> float | None:
+    params = {'sted': area, 'netselskab': network_company, 'produkt': company}
     headers = {'User-Agent': 'UserAgent/1.0'}
 
     response = requests.get(url=ELECTRICITY_PRICE_URL, params=params, headers=headers).json()
