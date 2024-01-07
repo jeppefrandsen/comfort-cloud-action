@@ -6,11 +6,13 @@ GitHub Actions for controlling a [Panasonic Comfort Cloud](https://www.aircon.pa
 
 ## Benefits
 
-Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity :earth_africa:. It is furthermore totally FREE since all GitHub users gets 2000 Actions minutes per month, so no monthly subscriptions and buying of dedicated devices for this purpose.
+Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity. It is furthermore totally FREE since all GitHub users gets 2000 Actions minutes per month, so no monthly subscriptions and buying of dedicated devices for this purpose.
+
+The idea is also that the main control is the Panasonic Comfort Cloud App
 
 ## Usage
 
-Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under the "Actions" tab by selecting "Disable workflow".
+Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under the "Actions" tab by selecting "Disable workflow". I am using starring of my private `comfort-cloud` repo including this action to enable and disable the control.
 
 
 ```yml
@@ -35,9 +37,14 @@ jobs:
         price-max: 3.0
 ```
 
+## Limitations
+
+It currently only works in Denmark but could be expanded to Norway and Sweden by using https://www.energidataservice.dk/tso-electricity/Elspotprices as the API instead.
+
 ## Roadmap
 
 Below are some of the identified roadmap items. Let me know if you think something is missing. Pull requests are more than welcome :pray:
 
 - [ ] Add support for miminum temperature (force turn on if temperature is below limit)
 - [ ] Add more intelligent control (increase temperature or be more powerful when cheaper than a certain level)
+- [ ] Calculate daily cost (already possible to read out the usage from the heatpump - just need to be calculated each hour)
