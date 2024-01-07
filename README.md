@@ -1,6 +1,6 @@
 # comfort-cloud-action
 
-![GitHub release](https://img.shields.io/github/v/release/jeppefrandsen/comfort-cloud-action) ![GitHub](https://img.shields.io/github/license/jeppefrandsen/comfort-cloud-action)
+![GitHub release](https://img.shields.io/github/v/release/jeppefrandsen/comfort-cloud-action)
 
 GitHub Actions for controlling a [Panasonic Comfort Cloud](https://www.aircon.panasonic.eu) enabled heatpump based on electricity price.
 
