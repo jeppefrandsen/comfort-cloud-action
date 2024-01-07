@@ -6,7 +6,7 @@ GitHub Actions for controlling a [Panasonic Comfort Cloud](https://www.aircon.pa
 
 ## Benefits
 
-Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity. It is furthermore **TOTALLY FREE** since all GitHub users gets 2000 Actions minutes per month for free, so no monthly subscriptions and buying of dedicated devices for this purpose.
+Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity. It is furthermore totally **FREE** since all GitHub users gets 2000 Actions minutes per month for free, so no monthly subscriptions and buying of dedicated devices for this purpose.
 
 The idea is also that the main control is still the Panasonic Comfort Cloud App and optimizing cost is just something done in the background. This is why this GitHub Actions is not adjusting temperature, air flow etc. but just controlling the power.
 
