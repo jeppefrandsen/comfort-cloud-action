@@ -1,6 +1,6 @@
 # comfort-cloud-action
 
-![GitHub release](https://img.shields.io/github/v/release/jeppefrandsen/comfort-cloud-action) ![GitHub](https://img.shields.io/github/license/jeppefrandsen/comfort-cloud-action)
+![GitHub release](https://img.shields.io/github/v/release/jeppefrandsen/comfort-cloud-action)
 
 GitHub Actions for controlling a [Panasonic Comfort Cloud](https://www.aircon.panasonic.eu) enabled heatpump based on electricity price.
 
@@ -47,5 +47,5 @@ Below are some of the identified ideas to be added. Let me know if you think som
 
 - [ ] Add support for miminum temperature (force turn on if temperature is below limit)
 - [ ] Add more intelligent control (increase temperature or be more powerful when cheaper than a certain level)
-- [ ] Optimize regulation to avoid letting the temperature adjust more than 1 max 2 degrees celcius to lower power usage
+- [ ] Optimize regulation to avoid letting the temperature adjust more than 1-2 degrees celcius to lower power usage
 - [ ] Calculate daily cost (already possible to read out the usage from the heatpump - just need to be calculated each hour)

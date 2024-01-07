@@ -1,4 +1,4 @@
-name: "Comfort Cloud"
+name: "Comfort Cloud Action"
 description: "GitHub Actions for controlling a Panasonic Comfort Cloud enabled heatpump based on electricity price"
 branding:
   icon: "thermometer"
