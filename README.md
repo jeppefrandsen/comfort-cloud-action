@@ -6,7 +6,7 @@ GitHub Actions for controlling a [Panasonic Comfort Cloud](https://www.aircon.pa
 
 ## Benefits
 
-Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity. It is furthermore totally **FREE** since all GitHub users gets 2000 Actions minutes per month, so no monthly subscriptions and buying of dedicated devices for this purpose.
+Using GitHub Actions to control your heatpump has be benefit of not requiring yet another device to control your already Wi-Fi enabled heatpump like [Homey](https://homey.app) and [Home Assistant](https://www.home-assistant.io) and hereby requiring even more electricity. It is furthermore **TOTALLY FREE** since all GitHub users gets 2000 Actions minutes per month for free, so no monthly subscriptions and buying of dedicated devices for this purpose.
 
 The idea is also that the main control is still the Panasonic Comfort Cloud App and optimizing cost is just something done in the background. This is why this GitHub Actions is not adjusting temperature, air flow etc. but just controlling the power.
 
@@ -26,7 +26,7 @@ jobs:
   comfort-cloud:
     runs-on: ubuntu-latest
     steps:  
-    - name: Check price and control Panasonic Comfort Cloud
+    - name: Run
       uses: jeppefrandsen/comfort-cloud-action@v1
       with:
         username: ${{ secrets.COMFORT_CLOUD_USERNAME }}
@@ -41,9 +41,9 @@ jobs:
 
 It currently only works in Denmark due to the electricity calculations but could be expanded to Norway and Sweden by using https://www.energidataservice.dk/tso-electricity/Elspotprices as the API instead.
 
-## Roadmap
+## Ideas
 
-Below are some of the identified roadmap items. Let me know if you think something is missing. Pull requests are more than welcome :pray:
+Below are some of the identified ideas to be added. Let me know if you think something is missing. Pull requests are more than welcome :pray:
 
 - [ ] Add support for miminum temperature (force turn on if temperature is below limit)
 - [ ] Add more intelligent control (increase temperature or be more powerful when cheaper than a certain level)
