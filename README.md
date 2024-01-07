@@ -12,7 +12,7 @@ The idea is also that the main control is still the Panasonic Comfort Cloud App 
 
 ## Usage
 
-Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under the *"Actions"* tab by selecting *"Disable workflow"*. I am using starring of my private *comfort-cloud* repo including this action to enable and disable the control since it is easily done in the GitHub App.
+Below is an example of checking the eletricity price for the specified electricity area, network and company every hour and control the heatpump based on the given max price. If you want to disable the control the workflow can be disabled under the "Actions" tab by selecting "Disable workflow". I am using starring of my private repo including this action to enable and disable the control since it is easily done in the GitHub App.
 
 
 ```yml
@@ -47,4 +47,5 @@ Below are some of the identified ideas to be added. Let me know if you think som
 
 - [ ] Add support for miminum temperature (force turn on if temperature is below limit)
 - [ ] Add more intelligent control (increase temperature or be more powerful when cheaper than a certain level)
+- [ ] Optimize regulation to avoid letting the temperature adjust more than 1 max 2 degrees celcius to lower power usage
 - [ ] Calculate daily cost (already possible to read out the usage from the heatpump - just need to be calculated each hour)
