@@ -61,7 +61,7 @@ inputs:
     - vores_elnet
     - zeanet
     - aal_el_net_c
-  company:
+  electricity-company:
     description: "Electricity company"
     required: true
     type: choice
@@ -100,5 +100,5 @@ runs:
         COMFORT_CLOUD_PASSWORD: ${{ inputs.password }}
         COMFORT_CLOUD_AREA: ${{ inputs.area }}
         COMFORT_CLOUD_NETWORK_COMPANY: ${{ inputs.network-company }}
-        COMFORT_CLOUD_COMPANY: ${{ inputs.company }}
+        COMFORT_CLOUD_ELECTRICITY_COMPANY: ${{ inputs.electricity-company }}
         COMFORT_CLOUD_PRICE_MAX: ${{ inputs.price-max }}

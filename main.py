@@ -3,9 +3,9 @@ import electricity
 import pcomfortcloud
 
 AREA = os.getenv('COMFORT_CLOUD_AREA')
-COMPANY = os.getenv('COMFORT_CLOUD_COMPANY')
 PRICE_MAX = float(os.getenv('COMFORT_CLOUD_PRICE_MAX'))
 NETWORK_COMPANY = os.getenv('COMFORT_CLOUD_NETWORK_COMPANY')
+ELECTRICITY_COMPANY = os.getenv('COMFORT_CLOUD_ELECTRICITY_COMPANY')
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
         device = session.get_device(devices[0]['id'])
         if device:
             power = device['parameters']['power']
-            price = electricity.price(AREA, NETWORK_COMPANY, COMPANY)
+            price = electricity.price(AREA, NETWORK_COMPANY, ELECTRICITY_COMPANY)
             if price:
                 print("Current price is {}".format(price))
 
