@@ -11,10 +11,11 @@ ELECTRICITY_COMPANY = os.getenv('COMFORT_CLOUD_ELECTRICITY_COMPANY')
 def main():
     session = pcomfortcloud.Session(os.getenv('COMFORT_CLOUD_USERNAME'), os.getenv('COMFORT_CLOUD_PASSWORD'))
     session.login()
+    client = pcomfortcloud.ApiClient(session)
 
-    devices = session.get_devices()
+    devices = client.get_devices()
     if devices:
-        device = session.get_device(devices[0]['id'])
+        device = client.get_device(devices[0]['id'])
         if device:
             power = device['parameters']['power']
             price = electricity.price(AREA, NETWORK_COMPANY, ELECTRICITY_COMPANY)
