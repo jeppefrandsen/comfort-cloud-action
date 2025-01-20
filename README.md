@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
     - name: Run
-      uses: jeppefrandsen/comfort-cloud-action@v1
+      uses: jeppefrandsen/comfort-cloud-action@v2
       with:
         username: ${{ secrets.COMFORT_CLOUD_USERNAME }}
         password: ${{ secrets.COMFORT_CLOUD_PASSWORD }}
