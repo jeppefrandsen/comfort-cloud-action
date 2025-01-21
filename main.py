@@ -24,10 +24,10 @@ def main():
 
                 if power == pcomfortcloud.constants.Power.On and price > PRICE_MAX:
                     print("Powering off {}".format(devices[0]['name']))
-                    session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
+                    client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
                 elif power == pcomfortcloud.constants.Power.Off and price <= PRICE_MAX:
                     print("Powering on {}".format(devices[0]['name']))
-                    session.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
+                    client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
             else:
                 print("Unable to get electricity price")
         else:
