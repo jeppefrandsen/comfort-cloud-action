@@ -45,7 +45,7 @@ It currently only works in Denmark due to the electricity calculations but could
 
 Below are some of the identified ideas to be added. Let me know if you think something is missing. Pull requests are more than welcome :pray:
 
-- [ ] Add support for miminum temperature (force turn on if temperature is below limit)
 - [ ] Add more intelligent control (increase temperature or be more powerful when cheaper than a certain level)
 - [ ] Optimize regulation to avoid letting the temperature adjust more than 1-2 degrees celcius to lower power usage
-- [ ] Calculate daily cost (already possible to read out the usage from the heatpump - just need to be calculated each hour)
+- [ ] Calculate daily cost (already possible to read out the usage from the heatpump)
+- [ ] Optimise control based on outdoor temperature (cheaper to heat when warmer outside)

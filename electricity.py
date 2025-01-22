@@ -1,11 +1,14 @@
+"""Electricity price module"""
+
+from datetime import datetime
 import pytz
 import requests
-from datetime import datetime
 
 ELECTRICITY_PRICE_URL = "https://www.billigkwh.dk/api/Priser/HentPriser"
 
 
-def price(area: str, network_company: str, company: str) -> float | None:
+def get_price(area: str, network_company: str, company: str) -> float | None:
+    """Get electricity price"""
     params = {'sted': area, 'netselskab': network_company, 'produkt': company}
     headers = {'User-Agent': 'UserAgent/1.0'}
 

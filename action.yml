@@ -21,7 +21,7 @@ inputs:
     description: "Electricity network company"
     required: true
     type: choice
-    options: 
+    options:
     - none
     - cerius_c
     - dinel_c
@@ -185,13 +185,16 @@ inputs:
     description: "Electricity price max"
     required: true
     type: number
-outputs:
-  changes:
-    description: "Indicates if there are changes from the latest release"
-    value: ${{ steps.run.outputs.changes }}
-  latest:
-    description: "The lastest release on the workflow branch"
-    value: ${{ steps.run.outputs.latest }}
+  temperature-min:
+    description: "Minimum temperature"
+    required: false
+    default: 0
+    type: number
+  temperature-max:
+    description: "Maximum temperature"
+    required: false
+    default: 25
+    type: number
 runs:
   using: "composite"
   steps:
@@ -206,7 +209,7 @@ runs:
         pip install -r $GITHUB_ACTION_PATH/requirements.txt
     - name: Run
       shell: bash
-      run: python $GITHUB_ACTION_PATH/main.py
+      run: python $GITHUB_ACTION_PATH/comfort_cloud.py
       env:
         COMFORT_CLOUD_USERNAME: ${{ inputs.username }}
         COMFORT_CLOUD_PASSWORD: ${{ inputs.password }}
@@ -214,3 +217,5 @@ runs:
         COMFORT_CLOUD_NETWORK_COMPANY: ${{ inputs.network-company }}
         COMFORT_CLOUD_ELECTRICITY_COMPANY: ${{ inputs.electricity-company }}
         COMFORT_CLOUD_PRICE_MAX: ${{ inputs.price-max }}
+        COMFORT_CLOUD_TEMPERATURE_MIN: ${{ inputs.temperature-min }}
+        COMFORT_CLOUD_TEMPERATURE_MAX: ${{ inputs.temperature-max }}
