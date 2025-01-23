@@ -40,7 +40,7 @@ def main():
             print(f"Powering off {devices[0]['name']}")
             client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
     elif power == pcomfortcloud.constants.Power.Off: 
-        if price <= PRICE_MAX or temp_inside <= TEMPERATURE_MIN:
+        if (price <= PRICE_MAX and temp_inside < TEMPERATURE_MAX) or temp_inside <= TEMPERATURE_MIN:
             print(f"Powering on {devices[0]['name']}")
             client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
 
