@@ -186,12 +186,12 @@ inputs:
     required: true
     type: number
   temperature-min:
-    description: "Minimum temperature"
+    description: "Minimum temperature to keep"
     required: false
     default: 0
     type: number
   temperature-max:
-    description: "Maximum temperature"
+    description: "Maximum temperature to keep"
     required: false
     default: 25
     type: number
@@ -202,6 +202,7 @@ runs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+        cache: 'pip'
     - name: Install dependencies
       shell: bash
       run: |
