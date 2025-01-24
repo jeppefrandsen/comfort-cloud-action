@@ -31,16 +31,17 @@ def main():
     if not price:
         raise RuntimeError("Unable to get electricity price")
 
+    temp = device['parameters']['temperature']
     temp_inside = device['parameters']['temperatureInside']
     temp_outside = device['parameters']['temperatureOutside']
-    print(f"Current price: {price}, temperature inside: {temp_inside}, temperature outside: {temp_outside}")
+    print(f"Current price: {price}, temp: {temp}, temp inside: {temp_inside}, temp outside: {temp_outside}")
 
     if power == pcomfortcloud.constants.Power.On:
         if price > PRICE_MAX or temp_inside >= TEMPERATURE_MAX:
             print(f"Powering off {devices[0]['name']}")
             client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.Off)
     elif power == pcomfortcloud.constants.Power.Off: 
-        if (price <= PRICE_MAX and temp_inside < TEMPERATURE_MAX) or temp_inside <= TEMPERATURE_MIN:
+        if (price <= PRICE_MAX and temp_inside < temp) or temp_inside <= TEMPERATURE_MIN:
             print(f"Powering on {devices[0]['name']}")
             client.set_device(devices[0]['id'], power=pcomfortcloud.constants.Power.On)
 
