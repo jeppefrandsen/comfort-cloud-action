@@ -33,8 +33,10 @@ jobs:
         password: ${{ secrets.COMFORT_CLOUD_PASSWORD }}
         area: DK1
         network-company: n1_c
-        electricity-company: nettopower
+        electricity-company: spotpris
         price-max: 3.0
+        temperature-min: 5
+        temperature-max: 10
 ```
 
 ## Limitations
