@@ -198,14 +198,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Create symbolic link to requirements.txt
-      shell: bash
-      run: ln -s $GITHUB_ACTION_PATH/requirements.txt
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
-        cache: "pip"
     - name: Install dependencies
       shell: bash
       run: pip install -r $GITHUB_ACTION_PATH/requirements.txt
