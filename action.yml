@@ -207,8 +207,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Restore cache 
-      uses: actions/cache/restore@v4
+    - name: Cache token
+      uses: actions/cache@v4
       with:
         path: ~/.comfort-cloud-token
         key: comfort-cloud-token
@@ -236,9 +236,3 @@ runs:
         COMFORT_CLOUD_PRICE_MAX: ${{ inputs.price-max }}
         COMFORT_CLOUD_TEMPERATURE_MIN: ${{ inputs.temperature-min }}
         COMFORT_CLOUD_TEMPERATURE_MAX: ${{ inputs.temperature-max }}
-
-    - name: Save cache 
-      uses: actions/cache/save@v4
-      with:
-        path: ~/.comfort-cloud-token
-        key: comfort-cloud-token
