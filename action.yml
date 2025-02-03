@@ -3,13 +3,16 @@ description: "GitHub Actions for controlling a Panasonic Comfort Cloud enabled h
 branding:
   icon: "thermometer"
   color: "green"
+
 inputs:
   username:
     description: "Panasonic Comfort Cloud username"
     required: true
+
   password:
     description: "Panasonic Comfort Cloud password"
     required: true
+
   area:
     description: "Electricity area"
     required: true
@@ -17,6 +20,7 @@ inputs:
     options: 
     - DK1
     - DK2
+
   network-company:
     description: "Electricity network company"
     required: true
@@ -61,6 +65,7 @@ inputs:
     - vores_elnet
     - zeanet
     - aal_el_net_c
+
   electricity-company:
     description: "Electricity company"
     required: true
@@ -181,20 +186,24 @@ inputs:
     - vindstoed_vestroem
     - zapp_energy
     - zosani-velkommen-energi 
+
   price-max:
     description: "Electricity price max"
     required: true
     type: number
+
   temperature-min:
     description: "Minimum temperature to keep"
     required: false
     default: 0
     type: number
+
   temperature-max:
     description: "Maximum temperature to keep"
     required: false
     default: 25
     type: number
+
 runs:
   using: "composite"
   steps:
