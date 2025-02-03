@@ -14,7 +14,7 @@ TEMPERATURE_MAX = int(os.getenv('COMFORT_CLOUD_TEMPERATURE_MAX', "25"))
 
 def main():
     """Main function"""
-    session = pcomfortcloud.Session(os.getenv('COMFORT_CLOUD_USERNAME'), os.getenv('COMFORT_CLOUD_PASSWORD'))
+    session = pcomfortcloud.Session(os.getenv('COMFORT_CLOUD_USERNAME'), os.getenv('COMFORT_CLOUD_PASSWORD'), '$HOME/.comfort-cloud-token')
     session.login()
     client = pcomfortcloud.ApiClient(session)
 

@@ -198,13 +198,23 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Restore cache 
+      uses: actions/cache/restore@v4
+      with:
+        path: ~/.comfort-cloud-token
+        key: ${{ runner.os }}-comfort-cloud-token
+
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
+
     - name: Install dependencies
       shell: bash
-      run: pip install -r $GITHUB_ACTION_PATH/requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r $GITHUB_ACTION_PATH/requirements.txt
+
     - name: Run
       shell: bash
       run: python $GITHUB_ACTION_PATH/comfort_cloud.py
@@ -217,3 +227,9 @@ runs:
         COMFORT_CLOUD_PRICE_MAX: ${{ inputs.price-max }}
         COMFORT_CLOUD_TEMPERATURE_MIN: ${{ inputs.temperature-min }}
         COMFORT_CLOUD_TEMPERATURE_MAX: ${{ inputs.temperature-max }}
+
+    - name: Save cache 
+      uses: actions/cache/save@v4
+      with:
+        path: ~/.comfort-cloud-token
+        key: ${{ runner.os }}-comfort-cloud-token
