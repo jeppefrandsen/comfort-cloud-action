@@ -202,7 +202,7 @@ runs:
       uses: actions/cache/restore@v4
       with:
         path: ~/.comfort-cloud-token
-        key: ${{ runner.os }}-comfort-cloud-token
+        key: comfort-cloud-token
 
     - name: Setup Python
       uses: actions/setup-python@v4
@@ -232,4 +232,4 @@ runs:
       uses: actions/cache/save@v4
       with:
         path: ~/.comfort-cloud-token
-        key: ${{ runner.os }}-comfort-cloud-token
+        key: comfort-cloud-token
